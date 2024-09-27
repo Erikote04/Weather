@@ -14,7 +14,7 @@ struct ImageView: View {
     
     var body: some View {
         Image(systemName: name)
-            .renderingMode(.original)
+            .symbolRenderingMode(.multicolor)
             .resizable()
             .scaledToFit()
             .frame(width: width, height: height)

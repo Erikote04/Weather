@@ -12,7 +12,7 @@ struct WeatherAppView: View {
     
     var body: some View {
         ZStack {
-            BackgroundGradientView(isDarkModeOn: $isDarkModeOn)
+            BackgroundGradientView(isDarkModeOn: isDarkModeOn)
             
             VStack {
                 TextView(text: "Cupertino, CA", size: 32, weight: .medium)
