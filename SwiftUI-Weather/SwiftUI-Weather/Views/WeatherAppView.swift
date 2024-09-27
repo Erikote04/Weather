@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct WeatherAppView: View {
+    @State private var isDarkModeOn = false
+    
     var body: some View {
         ZStack {
-            BackgroundGradientView(topColor: .blue, bottomColor: Color("lightBlue"))
+            BackgroundGradientView(isDarkModeOn: $isDarkModeOn)
             
             VStack {
                 TextView(text: "Cupertino, CA", size: 32, weight: .medium)
                     .padding()
                 
                 VStack(spacing: 8) {
-                    ImageView(name: "cloud.sun.fill", width: 180, height: 180)
+                    ImageView(name: isDarkModeOn ? "moon.stars.fill" : "cloud.sun.fill", width: 180, height: 180)
                     TextView(text: "76º", size: 64, weight: .medium)
                 }
                 .padding(.bottom, 48)
@@ -52,7 +54,7 @@ struct WeatherAppView: View {
                 Spacer()
                 
                 Button {
-                    print("tapped")
+                    isDarkModeOn.toggle()
                 } label: {
                     ButtonView(
                         title: "Change day time",
